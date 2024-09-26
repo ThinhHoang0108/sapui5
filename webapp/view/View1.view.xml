@@ -1,0 +1,61 @@
+<mvc:View controllerName="com.example.pro2.pro2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns="sap.ui.table">
+    <m:Page id="page" title="Thinh">
+        <m:content>
+            <Table
+                id="table1"
+                rows="{sample>/}"
+                selectionMode="MultiToggle"
+                paste="onPaste"
+                ariaLabelledBy="title">
+                <extension>
+                    <m:OverflowToolbar style="Clear">
+                        <m:Title id="title" text="Products" />
+                        <m:ToolbarSpacer />
+                        <m:Button text="Display" press="onPress"></m:Button>
+                    </m:OverflowToolbar>
+                </extension>
+                <columns>
+                    <Column width="11rem">
+                        <m:Label text="Product Name" />
+                        <template>
+                            <m:Text text="{sample>name}" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column width="11rem">
+                        <m:Label text="Product Id" />
+                        <template>
+                            <m:Input value="{sample>id}" />
+                        </template>
+                    </Column>
+                    <Column width="6rem" hAlign="End">
+                        <m:Label text="Quantity" />
+                        <template>
+                            <m:Label text="{sample>quantity}" />
+                        </template>
+                    </Column>
+                    <Column width="9rem">
+                        <m:Label text="Status" />
+                        <template>
+                            <m:ObjectStatus text="{sample>status}"
+                                state="{
+                        path: 'Available',
+                        formatter: '.formatAvailableToObjectState'
+                    }" />
+                        </template>
+                    </Column>
+                    <Column width="9rem">
+                        <m:Label text="Price" />
+                        <template>
+                            <u:Currency value="{sample>price}" currency="{sample>currency}" />
+                        </template>
+                    </Column>
+                </columns>
+            </Table>
+        </m:content>
+    </m:Page>
+</mvc:View>
